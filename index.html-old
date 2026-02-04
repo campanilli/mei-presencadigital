@@ -1172,7 +1172,6 @@
         // Header scroll effect
         const header = document.getElementById('header');
         const backToTop = document.getElementById('backToTop');
-        const footer = document.querySelector('footer');
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -1181,24 +1180,10 @@
                 header.classList.remove('scrolled');
             }
 
-            // Mostrar/esconder botão de voltar ao topo
             if (window.scrollY > 300) {
                 backToTop.classList.add('visible');
             } else {
                 backToTop.classList.remove('visible');
-            }
-
-            // Esconder botão quando estiver próximo ao footer (principalmente em mobile)
-            const scrollPosition = window.scrollY + window.innerHeight;
-            const footerPosition = footer.offsetTop;
-            
-            // Se estiver a 100px ou menos do footer, esconde o botão
-            if (scrollPosition >= footerPosition - 100) {
-                backToTop.style.opacity = '0';
-                backToTop.style.pointerEvents = 'none';
-            } else {
-                backToTop.style.opacity = '';
-                backToTop.style.pointerEvents = '';
             }
         });
 
