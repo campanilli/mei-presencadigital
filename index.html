@@ -962,15 +962,13 @@
     <section class="about" id="sobre">
         <div class="about-content">
             <div class="about-text fade-in-left">
-                <h2>Olá, sou Thiago Campanilli</h2>
-                <p>Desenvolvedor fullstack e especialista em presença digital para pequenos e médios negócios.</p>
-                <p>Sei que você já tem Instagram, talvez até WhatsApp Business. E isso é ótimo! Mas falta algo: uma base sólida que diga ao mundo que você é profissional, confiável e está sempre disponível.</p>
-                <p>Eu não vendo sites prontos. Eu ofereço presença digital como serviço — sempre atualizado, sempre funcionando, sempre profissional.</p>
-                <p><strong>📍 Localizado em:</strong> Rua São Geraldino, 333 – Vila Constança</p>
+                <h2>Visibilidade Estratégica</h2>
+                <p>Somos especialistas em desenvolvimento fullstack e presença digital estratégica para pequenos e médios negócios.</p>
+                <p>Muitas empresas já utilizam Instagram e até WhatsApp Business — e isso é um ótimo começo. Porém, ainda falta um elemento essencial: uma base digital sólida que transmita profissionalismo, credibilidade e disponibilidade contínua ao mercado.</p>
+                <p>Não trabalhamos com sites prontos ou soluções genéricas. Oferecemos presença digital como serviço — uma estrutura profissional, sempre atualizada, sempre funcional e alinhada às necessidades do seu negócio.</p>
+                <!--<p><strong>📍 Localizado em:</strong> Av. Mendes da Rocha, 1093 – Jardim Brasil</p>-->
             </div>
-            <div class="about-image fade-in-right">
-                <span class="about-image-text">TC</span>
-            </div>
+            <div class="about-image fade-in-right"></div>
         </div>
     </section>
 
@@ -1131,7 +1129,7 @@
             <h2>Pronto Para Ter Presença Digital?</h2>
             <p>Transforme visitantes em clientes com um site que funciona 24 horas por dia, 7 dias por semana.</p>
             <div class="cta-buttons">
-                <a href="https://wa.me/5511999999999?text=Olá! Quero saber mais sobre presença digital por assinatura" class="btn-white" target="_blank">Falar no WhatsApp</a>
+                <a href="https://wa.me/5511987805640?text=Olá! Quero saber mais sobre a presença digital" class="btn-white" target="_blank">Falar no WhatsApp</a>
             </div>
         </div>
     </section>
@@ -1141,11 +1139,14 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Presença Digital</h3>
+                <p>Diversificando com Tecnologia</p>
                 <p>Sua marca, visível e relevante</p>
             </div>
             <div class="footer-section">
                 <h3>Contato</h3>
-                <p>📱 WhatsApp: (11) 98780-5640</p>
+                <p>Av. Mendes da Rocha, 1093</p>
+                <p>Jardim Brasil</p>
+                <p>WhatsApp: + 55 11 98780-5640</p>
             </div>
             <div class="footer-section">
                 <h3>Links Rápidos</h3>
@@ -1156,7 +1157,9 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Presença Digital. Todos os direitos reservados.</p>
+            <p>&copy; 2026 Presença Digital — Todos os direitos reservados.</p>
+            <p>Soluções digitais focadas em presença, estratégia e resultados.</p>
+            <!--<p>Com colaboração de <a href="https://investconnector.vercel.app/" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:none; font-weight:500;">InvestConnector</a></p>-->
         </div>
     </footer>
 
@@ -1169,6 +1172,7 @@
         // Header scroll effect
         const header = document.getElementById('header');
         const backToTop = document.getElementById('backToTop');
+        const footer = document.querySelector('footer');
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -1177,10 +1181,24 @@
                 header.classList.remove('scrolled');
             }
 
+            // Mostrar/esconder botão de voltar ao topo
             if (window.scrollY > 300) {
                 backToTop.classList.add('visible');
             } else {
                 backToTop.classList.remove('visible');
+            }
+
+            // Esconder botão quando estiver próximo ao footer (principalmente em mobile)
+            const scrollPosition = window.scrollY + window.innerHeight;
+            const footerPosition = footer.offsetTop;
+            
+            // Se estiver a 100px ou menos do footer, esconde o botão
+            if (scrollPosition >= footerPosition - 100) {
+                backToTop.style.opacity = '0';
+                backToTop.style.pointerEvents = 'none';
+            } else {
+                backToTop.style.opacity = '';
+                backToTop.style.pointerEvents = '';
             }
         });
 
